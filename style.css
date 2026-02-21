@@ -101,8 +101,35 @@ ul {
     gap: 400px;                  /* consistent spacing */
 }
 
+/* make hero image scale fluidly and adapt layout on smaller screens */
+@media (max-width: 1080px) {
+    .hero-wrapper {
+        gap: var(--space-lg);
+    }
+    .hero-image {
+        flex: 0 0 40%;
+        max-width: 40%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-lg);
+    }
+    .hero-image {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .hero-image img {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
 .hero-content {
-    flex: 0 0 100%;              /* fixed proportional width */
+    flex: 0 0 80%;              /* fixed proportional width */
     max-width: 100%;
 }
 
@@ -110,7 +137,8 @@ ul {
     flex: 0 0 45%;
     max-width: 45%;
     display: flex;
-    justify-content: flex-end;  /* pushes image to right edge */
+    justify-content: flex-start;  /* position image at left edge of its container */
+    padding-left: var(--space-lg); /* keep a gutter from text */
 }
 
 .hero-image img {
